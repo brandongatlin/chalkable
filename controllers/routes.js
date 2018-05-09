@@ -48,8 +48,12 @@ router.get( "/scrape", function ( req, res ) {
           console.log( "articles were saved" );
         }
       } ); //end create
+
     } );
+
   } );
+  // res.sendFile( path.join( __dirname, '../views/index.html' ) );
+  res.redirect( '/' )
 } ); // end /scrape
 
 router.get( "/articles", function ( req, res ) {
@@ -64,6 +68,21 @@ router.get( "/articles", function ( req, res ) {
     }
   } );
 } );
+
+router.get( "/saved", function ( req, res ) {
+  artModel.find( { "saved": true }, function ( error, savedArticles ) {
+
+    if ( error ) {
+      console.log( error );
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      res.json( savedArticles );
+      // res.sendFile( path.join( __dirname, '../views/saved.html' ) );
+
+    }
+  } );
+} )
 
 router.put( "/savearticle/:id", function ( req, res ) {
 
