@@ -1,0 +1,28 @@
+* {
+  padding: 10px;
+}
+
+ul {
+  list-style: none;
+  border: 1px solid blue;
+}
+
+h1 {
+  color: blue;
+}
+
+.row {
+  border: 1px solid black;
+}
+
+.col, [class*="col-"] {
+  /* border: .1em dotted green; */
+}
+
+.title {
+  text-align: left;
+  /* margin: auto; */
+}
+
+.numbers {
+}
