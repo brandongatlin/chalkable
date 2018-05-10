@@ -6,13 +6,16 @@
   <title>Chalkable</title>
 
 
-
-
 </head>
 
 <body>
-  <div class='container'>
-    <div id='results'></div>
+
+
+  <div id='results'>
+
+    {{#each articles}}
+      <div class="row"><div class="col-lg-6"><a href={{this.link}} target="_blank"><h4 class="title">{{this.title}}</h4></a></div><div class="col-lg-2">{{this.author}}</div><div class="col-lg-2">{{this.time}}</div><div class="col-lg-2"><div><button class="save" data-id={{this.id}}>Save Article</button></div></div></div>
+    {{/each}}
 
   </div>
 </body>

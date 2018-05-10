@@ -58,10 +58,10 @@ $( document ).ready( function () {
   //   displaySaved( savedArticles );
   // } );
 
-  $.get( '/saved', function ( savedArticles ) {
-    console.log( '$.getJSON /saved hit' );
-    displaySaved( savedArticles );
-  } );
+  // $.get( '/saved', function ( savedArticles ) {
+  //   console.log( '$.getJSON /saved hit' );
+  //   displaySaved( savedArticles );
+  // } );
 
 
 

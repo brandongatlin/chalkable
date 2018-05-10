@@ -14,8 +14,25 @@ const logger = require( "morgan" );
 const mongoose = require( "mongoose" );
 
 router.get( '/', function ( req, res ) {
-  res.sendFile( path.join( __dirname, '../views/index.html' ) );
-  // res.send( 'hello, world from the backend' )
+
+  artModel.find( {}, function ( error, articles ) {
+
+    if ( error ) {
+      console.log( error );
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      let hbsObject = {
+        articles: articles
+      }
+      console.log( hbsObject );
+      res.render( 'index', hbsObject );
+
+    }
+  } );
+
+  // res.render( path.join( __dirname, '../views/index.handlebars' ) );
+  // res.send( 'hello, world from routes.js' )
 } );
 
 router.get( "/scrape", function ( req, res ) {
@@ -57,16 +74,16 @@ router.get( "/scrape", function ( req, res ) {
 } ); // end /scrape
 
 router.get( "/articles", function ( req, res ) {
-  artModel.find( {}, function ( error, articles ) {
-
-    if ( error ) {
-      console.log( error );
-    }
-    // Otherwise, send the result of this query to the browser
-    else {
-      res.json( articles );
-    }
-  } );
+  // artModel.find( {}, function ( error, articles ) {
+  //
+  //   if ( error ) {
+  //     console.log( error );
+  //   }
+  //   // Otherwise, send the result of this query to the browser
+  //   else {
+  //     res.json( articles );
+  //   }
+  // } );
 } );
 
 // router.get( "/saved", function ( req, res ) {
