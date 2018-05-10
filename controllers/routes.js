@@ -29,7 +29,7 @@ router.get( '/', function ( req, res ) {
       res.render( 'index', hbsObject );
 
     }
-  } );
+  } ).limit( 51 );
 
   // res.render( path.join( __dirname, '../views/index.handlebars' ) );
   // res.send( 'hello, world from routes.js' )
@@ -90,7 +90,7 @@ router.get( '/saved', function ( req, res ) {
       res.render( 'saved', hbsObject );
 
     }
-  } );
+  } ).limit( 51 );
 
   // res.render( path.join( __dirname, '../views/index.handlebars' ) );
   // res.send( 'hello, world from routes.js' )

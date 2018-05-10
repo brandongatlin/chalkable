@@ -9,25 +9,37 @@
 </head>
 
 <body>
+<div class="container-fluid">
 
-    {{#each articles}}
-      <div class="row">
-        <div class="col-lg-6">
-          <a href={{this.link}} target="_blank">
-            <h4 class="title">{{this.title}}</h4>
-          </a>
+  <div class="jumbotron jumbotron-fluid bg-success" id="myJumbotron1">
+  <div class="container">
+    <h1 class="display-4">Chalk: A SLATE magazine article scraper using MongoDB</h1>
+    <p class="lead">Enjoy the contents below. If you want to revisit and article, just click the fave button and navigate to "Faves"</p>
+  </div>
+</div>
+
+<div class="row">
+  {{#each articles}}
+    <div class="col-md-4">
+      <div class="card text-white bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href={{this.link}} target="_blank">
+              <h4 class="title">{{this.title}}
+              </h4>
+            </a>
+          </h5>
+          <p class="card-text">{{this.author}}</p><p class="time">{{this.time}}</p>
         </div>
-        <div class="col-lg-2">{{this.author}}
-        </div>
-        <div class="col-lg-2">{{this.time}}
-        </div>
-        <div class="col-lg-2">
-          <div>
-            <button class="save" data-id={{this.id}}>Save Article</button>
-          </div>
-        </div>
+        <button type="button" class="btn btn-success save" data-id={{this.id}}>Fave</button>
       </div>
-    {{/each}}
+    </div>
+  {{/each}}
+</div>
+
+
+
+
 
   </div>
 </body>
