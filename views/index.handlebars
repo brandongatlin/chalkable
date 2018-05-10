@@ -9,12 +9,30 @@
 </head>
 
 <body>
+
+
+
 <div class="container-fluid">
+
+
+  <ul class="nav nav-pills" id="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/saved">Faves</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/scrape">Scrape</a>
+    </li>
+  </ul>
+
+
 
   <div class="jumbotron jumbotron-fluid bg-success" id="myJumbotron1">
   <div class="container">
     <h1 class="display-4">Chalk: A SLATE magazine article scraper using MongoDB</h1>
-    <p class="lead">Enjoy the contents below. If you want to revisit and article, just click the fave button and navigate to "Faves"</p>
+    <p class="lead">Enjoy the contents below. If you want to revisit and article, just click the fave button and navigate to "Faves." If you want to refresh the aricles, just click "Scrape."</p>
   </div>
 </div>
 
@@ -42,6 +60,37 @@
 
 
   </div>
+
+
+
+  <!--modal-->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Welcome to the team!</h5> -->
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h5 id="modal-body-text" style="text-align: center"></h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End modal -->
+
+
+
+  <div class="footer-copyright py-3 text-center">
+          © 2018 Copyright: Brandon Gatlin
+          <a href="http://brandongatlin.work/"> brandongatlin.work </a>
+      </div>
+
 </body>
 
 </html>

@@ -2,6 +2,16 @@
   /* padding: 10px; */
 }
 
+#nav {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.active {
+  border: .1rem solid black;
+  background-color: #dff0d8;
+}
+
 h1 {
   color: blue;
 }
@@ -22,6 +32,11 @@ h1 {
 }
 
 #myJumbotron1 {
+  border-radius: 1rem;
+  background-color: #dff0d8;
+}
+
+#myJumbotron2 {
   border-radius: 1rem;
   background-color: #dff0d8;
 }

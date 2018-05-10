@@ -2,6 +2,8 @@ $( document ).ready( function () {
   console.log( 'app.js loaded' );
 
 
+
+
   $( document ).on( "click", ".save", function () {
     console.log( "save button clicked" );
 
@@ -15,7 +17,7 @@ $( document ).ready( function () {
         id: id
       }
     } );
-
+    // $( '#myModal' ).show();
   } );
 
 
