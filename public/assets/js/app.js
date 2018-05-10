@@ -24,7 +24,7 @@ $( document ).ready( function () {
 
 
 
-  $( document ).on( "click", ".delete", function () {
+  $( document ).on( "click", ".delete", function ( data ) {
 
     var id = $( this ).attr( "data-id" );
 
@@ -34,7 +34,10 @@ $( document ).ready( function () {
       data: {
         id: id
       }
+
+
     } );
+
     // $( '#myModal' ).show();
   } );
 

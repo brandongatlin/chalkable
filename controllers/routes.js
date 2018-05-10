@@ -126,10 +126,9 @@ router.put( "/deletearticle/:id", function ( req, res ) {
       new: true
     },
     function ( error, doc ) {
-      // console.log( "doc is", doc );
+      console.log( "deleted is", doc );
     } );
   res.end();
-
 } );
 
 
