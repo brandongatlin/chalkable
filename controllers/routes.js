@@ -6,6 +6,8 @@ const mongojs = require( "mongojs" );
 const bodyParser = require( "body-parser" );
 const path = require( 'path' );
 const artModel = require( "../models/Article.js" );
+const noteModel = require( "../models/Note.js" );
+
 
 const cheerio = require( "cheerio" );
 const request = require( "request" );
@@ -25,7 +27,7 @@ router.get( '/', function ( req, res ) {
       let hbsObject = {
         articles: articles
       }
-      console.log( hbsObject );
+      // console.log( hbsObject );
       res.render( 'index', hbsObject );
 
     }
@@ -86,7 +88,7 @@ router.get( '/saved', function ( req, res ) {
       let hbsObject = {
         articles: articles
       }
-      console.log( hbsObject );
+      // console.log( hbsObject );
       res.render( 'saved', hbsObject );
 
     }
@@ -106,12 +108,29 @@ router.put( "/savearticle/:id", function ( req, res ) {
       new: true
     },
     function ( error, doc ) {
-      console.log( "doc is", doc );
+      // console.log( "doc is", doc );
     } );
   console.log( "/saveart got hit, and req.params.id is:",
     req.params.id );
   res.end();
 
+} );
+
+
+
+router.post( "/comment/:id", function ( req, res ) {
+  console.log( 'comment post route hit' )
+  noteModel.create( {
+      _id: req.params.id
+    }, {
+      "noteText": req.params.body
+    }, {
+      new: true
+    },
+    function ( error, doc ) {
+      console.log( "comment doc is", doc );
+    } );
+  console.log( "r.p.body is:", req.params.body );
 } );
 
 

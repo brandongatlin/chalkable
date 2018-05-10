@@ -23,6 +23,30 @@ $( document ).ready( function () {
 
 
 
+  $( document ).on( "click", ".add-note", function () {
+    console.log( "comment button clicked" );
+
+    const note = $( ".form-control" ).val().trim();
+
+    var id = $( this ).attr( "data-id" );
+    const url = "/comment/:" + id;
+    console.log( "note id is:", id );
+    console.log( "note is:", note );
+
+
+    $.ajax( {
+      type: "POST",
+      url: url,
+      data: {
+        text: note
+      }
+    } );
+    console.log( url );
+
+  } );
+
+
+
 
 
   $( document ).on( "click", ".delete", function ( event ) {

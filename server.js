@@ -43,11 +43,11 @@ app.use( express.static( "public" ) );
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/scraper" );
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/chalk" );
 // Database configuration
 // Save the URL of our database as well as the name of our collection
-var databaseUrl = "scraper";
-var collections = [ "articles" ];
+var databaseUrl = "chalk";
+var collections = [ "articles", "notes" ];
 
 // Use mongojs to hook the database to the db variable
 var db = mongoose.connection;
