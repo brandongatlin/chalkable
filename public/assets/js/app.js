@@ -17,6 +17,7 @@ $( document ).ready( function () {
         id: id
       }
     } );
+    $( this ).addClass( 'disabled' );
     // $( '#myModal' ).show();
   } );
 
@@ -24,8 +25,8 @@ $( document ).ready( function () {
 
 
 
-  $( document ).on( "click", ".delete", function ( data ) {
-
+  $( document ).on( "click", ".delete", function ( event ) {
+    // console.log( '27 data is:', data );
     var id = $( this ).attr( "data-id" );
 
     $.ajax( {
@@ -35,8 +36,8 @@ $( document ).ready( function () {
         id: id
       }
 
-
     } );
+    $( this ).addClass( 'disabled' );
 
     // $( '#myModal' ).show();
   } );
