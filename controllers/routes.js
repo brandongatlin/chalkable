@@ -116,5 +116,23 @@ router.put( "/savearticle/:id", function ( req, res ) {
 
 
 
+router.put( "/deletearticle/:id", function ( req, res ) {
+
+  artModel.findOneAndUpdate( {
+      _id: req.params.id
+    }, {
+      "saved": false
+    }, {
+      new: true
+    },
+    function ( error, doc ) {
+      // console.log( "doc is", doc );
+    } );
+  res.end();
+
+} );
+
+
+
 
 module.exports = router;

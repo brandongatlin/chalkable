@@ -21,4 +21,22 @@ $( document ).ready( function () {
   } );
 
 
+
+
+
+  $( document ).on( "click", ".delete", function () {
+
+    var id = $( this ).attr( "data-id" );
+
+    $.ajax( {
+      type: "PUT",
+      url: "/deletearticle/" + id,
+      data: {
+        id: id
+      }
+    } );
+    // $( '#myModal' ).show();
+  } );
+
+
 } ); //end doc . ready
