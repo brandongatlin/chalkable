@@ -53,7 +53,12 @@ $( document ).ready( function () {
     displayResults( articles );
   } );
 
-  $.getJSON( '/saved', function ( savedArticles ) {
+  // $.getJSON( '/saved', function ( savedArticles ) {
+  //   console.log( '$.getJSON /saved hit' );
+  //   displaySaved( savedArticles );
+  // } );
+
+  $.get( '/saved', function ( savedArticles ) {
     console.log( '$.getJSON /saved hit' );
     displaySaved( savedArticles );
   } );

@@ -69,19 +69,33 @@ router.get( "/articles", function ( req, res ) {
   } );
 } );
 
+// router.get( "/saved", function ( req, res ) {
+//   artModel.find( { "saved": true }, function ( error, savedArticles ) {
+//
+//     if ( error ) {
+//       console.log( error );
+//     }
+//     // Otherwise, send the result of this query to the browser
+//     else {
+//       res.json( savedArticles );
+//       // res.sendFile( path.join( __dirname, '../views/saved.html' ) );
+//
+//     }
+//   } );
+// } )
+
 router.get( "/saved", function ( req, res ) {
-  artModel.find( { "saved": true }, function ( error, savedArticles ) {
+  artModel.find( { "saved": true } ).then( function ( savedArticles ) {
 
-    if ( error ) {
-      console.log( error );
-    }
-    // Otherwise, send the result of this query to the browser
-    else {
-      res.json( savedArticles );
-      // res.sendFile( path.join( __dirname, '../views/saved.html' ) );
+      res.json( savedArticles )
+      console.log( "saved ARTs are:", savedArticles );
 
-    }
-  } );
+    } )
+    .catch( function ( err ) {
+
+      res.json( err );
+    } );
+
 } )
 
 router.put( "/savearticle/:id", function ( req, res ) {
