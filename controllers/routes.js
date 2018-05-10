@@ -101,19 +101,41 @@ router.get( "/articles", function ( req, res ) {
 //   } );
 // } )
 
-router.get( "/saved", function ( req, res ) {
-  artModel.find( { "saved": true } ).then( function ( savedArticles ) {
+// router.get( "/saved", function ( req, res ) {
+//   artModel.find( { "saved": true } ).then( function ( savedArticles ) {
+//
+//       res.json( savedArticles )
+//       console.log( "saved ARTs are:", savedArticles );
+//
+//     } )
+//     .catch( function ( err ) {
+//
+//       res.json( err );
+//     } );
+//
+// } )
 
-      res.json( savedArticles )
-      console.log( "saved ARTs are:", savedArticles );
+router.get( '/saved', function ( req, res ) {
 
-    } )
-    .catch( function ( err ) {
+  artModel.find( {}, function ( error, articles ) {
 
-      res.json( err );
-    } );
+    if ( error ) {
+      console.log( error );
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      let hbsObject = {
+        articles: articles
+      }
+      console.log( hbsObject );
+      res.render( 'saved', hbsObject );
 
-} )
+    }
+  } );
+
+  // res.render( path.join( __dirname, '../views/index.handlebars' ) );
+  // res.send( 'hello, world from routes.js' )
+} );
 
 router.put( "/savearticle/:id", function ( req, res ) {
 
