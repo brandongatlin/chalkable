@@ -164,10 +164,77 @@ router.put( "/deletearticle/:id", function ( req, res ) {
   // res.end();
 } );
 
-// router.get( "/https://slate.com/author/" + "*" + authorLastName ){
-//
-// }
+router.get( "/sort/author", function ( req, res ) {
+  // const authorSort = "";
+  artModel.find().sort( { authorLastName: 1 } ).exec( function ( error, articles ) {
+    if ( error ) {
+      console.log( error );
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      // console.log( "sorted articles are:", articles );
+      let sortedObj = {
+        articles: articles
+      }
 
+      for ( var i = 0; i < articles.length; i++ ) {
+        var namez = articles[ i ].authorLastName;
+      }
+      // console.log( hbsObject );
+      res.render( 'index', sortedObj );
+
+    }
+  } )
+
+} )
+
+router.get( "/sort/date/asc", function ( req, res ) {
+  // const authorSort = "";
+  artModel.find().sort( { time: -1 } ).exec( function ( error, articles ) {
+    if ( error ) {
+      console.log( error );
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      // console.log( "sorted articles are:", articles );
+      let sortedObj = {
+        articles: articles
+      }
+
+      for ( var i = 0; i < articles.length; i++ ) {
+        var timez = articles[ i ].time;
+      }
+      // console.log( hbsObject );
+      res.render( 'index', sortedObj );
+
+    }
+  } )
+
+} )
+
+router.get( "/sort/date/desc", function ( req, res ) {
+  // const authorSort = "";
+  artModel.find().sort( { time: 1 } ).exec( function ( error, articles ) {
+    if ( error ) {
+      console.log( error );
+    }
+    // Otherwise, send the result of this query to the browser
+    else {
+      // console.log( "sorted articles are:", articles );
+      let sortedObj = {
+        articles: articles
+      }
+
+      for ( var i = 0; i < articles.length; i++ ) {
+        var timez = articles[ i ].time;
+      }
+      // console.log( hbsObject );
+      res.render( 'index', sortedObj );
+
+    }
+  } )
+
+} )
 
 
 
