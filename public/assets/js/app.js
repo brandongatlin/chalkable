@@ -66,5 +66,25 @@ $( document ).ready( function () {
     // $( '#myModal' ).show();
   } );
 
+  $( document ).on( "click", ".author", function ( event ) {
+    event.preventDefault();
+
+    var lastNameU = $( this ).attr( "surname" );
+    var firstNameU = $( this ).attr( "first" );
+
+    var lastName = lastNameU.toLowerCase();
+    var firstName = firstNameU.toLowerCase();
+
+
+    console.log( "this author lastname is:", lastName );
+    console.log( "this author firstname is:", firstName );
+
+
+    var authorUrl = "https://slate.com/author/" + firstName + "-" + lastName;
+
+    // res.redirect( "https://slate.com/author/" + "*" + lastName )
+    window.location.replace( authorUrl );
+  } )
+
 
 } ); //end doc . ready

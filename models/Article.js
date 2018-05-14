@@ -22,6 +22,16 @@ var ArticleSchema = new Schema( {
     required: false
   },
 
+  authorLastName: {
+    type: String,
+    required: false
+  },
+
+  authorFirstName: {
+    type: String,
+    required: false
+  },
+
   time: {
     type: String,
     required: false

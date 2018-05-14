@@ -15,6 +15,10 @@ const request = require( "request" );
 const logger = require( "morgan" );
 const mongoose = require( "mongoose" );
 
+var authorLastName;
+var authorFirstName;
+
+
 router.get( '/', function ( req, res ) {
 
   artModel.find( {}, function ( error, articles ) {
@@ -50,6 +54,14 @@ router.get( "/scrape", function ( req, res ) {
       var author = $( element ).children().children( '.byline' ).text()
       var time = $( element ).children( '.timestamp' ).text();
 
+      var authorLastArr = author.split( ' ' )
+      authorLastName = authorLastArr[ 2 ];
+      console.log( "authorLastName", authorLastName )
+
+      var authorFirstNameArr = author.split( ' ' )
+      authorFirstName = authorFirstNameArr[ 1 ];
+      console.log( "authorFirstName is", authorFirstName );
+
       // console.log( "title is:", title );
       // console.log( "link is:", link );
       // console.log( "author is:", author );
@@ -59,12 +71,14 @@ router.get( "/scrape", function ( req, res ) {
         title: title,
         link: link,
         author: author,
+        authorFirstName: authorFirstName,
+        authorLastName: authorLastName,
         time: time
       }, function ( error, saved ) {
         if ( error ) {
           console.log( "errors are:", error );
         } else {
-          console.log( "articles were saved" );
+          // console.log( "articles were saved" );
         }
       } ); //end create
 
@@ -149,6 +163,10 @@ router.put( "/deletearticle/:id", function ( req, res ) {
     } );
   // res.end();
 } );
+
+// router.get( "/https://slate.com/author/" + "*" + authorLastName ){
+//
+// }
 
 
 
