@@ -56,7 +56,6 @@ $( document ).ready( function () {
 
     } );
     $( this ).addClass( 'disabled' );
-
     // $( '#myModal' ).show();
   } );
 
@@ -75,6 +74,7 @@ $( document ).ready( function () {
 
 
     var authorUrl = "https://slate.com/author/" + firstName + "-" + lastName;
+    console.log(authorUrl);
 
     // res.redirect( "https://slate.com/author/" + "*" + lastName )
     window.location.replace( authorUrl );

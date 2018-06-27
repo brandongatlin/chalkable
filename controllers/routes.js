@@ -124,8 +124,8 @@ router.put( "/savearticle/:id", function ( req, res ) {
     function ( error, doc ) {
       // console.log( "doc is", doc );
     } );
-  console.log( "/saveart got hit, and req.params.id is:",
-    req.params.id );
+  // console.log( "/saveart got hit, and req.params.id is:",
+  //   req.params.id );
   res.end();
 
 } );
@@ -159,13 +159,12 @@ router.put( "/deletearticle/:id", function ( req, res ) {
       new: true
     },
     function ( error, doc ) {
-      console.log( "deleted is", doc );
     } );
-  // res.end();
+  res.render('saved');
 } );
 
 router.get( "/sort/author", function ( req, res ) {
-  // const authorSort = "";
+
   artModel.find().sort( { authorLastName: 1 } ).exec( function ( error, articles ) {
     if ( error ) {
       console.log( error );
