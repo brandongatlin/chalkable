@@ -1,11 +1,6 @@
 $( document ).ready( function () {
-  console.log( 'app.js loaded' );
-
-
-
 
   $( document ).on( "click", ".save", function () {
-    console.log( "save button clicked" );
 
     var id = $( this ).attr( "data-id" );
 
@@ -24,14 +19,13 @@ $( document ).ready( function () {
 
 
   $( document ).on( "click", ".add-note", function () {
-    console.log( "comment button clicked" );
 
     const note = $( ".form-control" ).val().trim();
 
     var id = $( this ).attr( "data-id" );
     const url = "/comment/:" + id;
-    console.log( "note id is:", id );
-    console.log( "note is:", note );
+    // console.log( "note id is:", id );
+    // console.log( "note is:", note );
 
 
     $.ajax( {
@@ -41,7 +35,7 @@ $( document ).ready( function () {
         text: note
       }
     } );
-    console.log( url );
+    // console.log( url );
 
   } );
 
@@ -76,8 +70,8 @@ $( document ).ready( function () {
     var firstName = firstNameU.toLowerCase();
 
 
-    console.log( "this author lastname is:", lastName );
-    console.log( "this author firstname is:", firstName );
+    // console.log( "this author lastname is:", lastName );
+    // console.log( "this author firstname is:", firstName );
 
 
     var authorUrl = "https://slate.com/author/" + firstName + "-" + lastName;
